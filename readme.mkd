@@ -11,3 +11,5 @@ To install:
     pip install -r requirements.txt
     ... create YAML file (see examples) ...
     python test_builder.py yourfile.yaml
+
+Getting `pip: command not found`? Short fix: `easy_install pip` (possibly with `sudo`). Better fix: if you're going to stick with Python, you should be using `pip` as well as `virtualenv` to install these things. If you don't know what that is, [here](http://dabapps.com/blog/introduction-to-pip-and-virtualenv-python/) is a good overview to get you started.
