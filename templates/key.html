@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block css %}
+{{ super() }}
+<style>
+    table { margin-top: 20px; }
+    th, td { text-align: left; }
+    td.number, th.number { text-align: right; padding-right: 10px; }
+    td.correct { }
+</style>
+{% endblock css %}
+
+
+{% block content %}
+{% include "header.html" %}
+<p>&nbsp;</p>
+
+<table>
+    <tr>
+        <th class='number'></th>
+        <th class='correct' width='8%'></th>
+        <th>Notes</th>
+    </tr>
+{% for q in questions %}
+    <tr><td></td></tr>
+    <tr>
+        <td class='number' width='8%' valign='top'>{{ loop.index }}.</td>
+        <td class='correct' width='8%' valign='top'>
+            {% if q.correct %}
+            {% for answer in q.correct %}{{ 'ABCDEFGHIJK'[answer] }}{% endfor %}
+            {% endif %}
+        </td>
+        <td valign='top'>{{ q.notes }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock content %}

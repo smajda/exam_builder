@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block css %}
+{{ super() }}
+<style>
+p { margin: 1em 0 0 0; }
+table.question { }
+td.number { text-align: right; padding-right: 5px; }
+td.number { text-align: right; padding-right: 5px; }
+</style>
+{% endblock css %}
+
+
+{% block content %}
+{% include "header.html" %}
+
+{# 
+Yeah, tables suck, but so does pisa's css support,
+and tables have nice page-breaking properties for printing
+(i.e. a tr will never span pages)
+#}
+
+<p style="margin-top: 20px;">Name: _____________________________________</p>
+
+<table>
+{% for q in questions %}
+    <tr><td>
+    <table class='question'>
+        <tr>&nbsp;</tr> {# margin-top does nothing here, so... #}
+        <tr>
+            <td valign='top' class='number' width='6%'>
+                {{ loop.index }}.</td>
+            <td colspan='2' valign='top' class='the-question'>{{ q.question }}</td>
+        </tr>
+        <tr>&nbsp;</tr>
+        {% if q.format == 'choice' %}
+            {% for a in q.answers %}
+            <tr>
+                <td></td>
+                <td valign='top' width='4%'>{{ 'ABCDEFGHIJK'[loop.index0] }}.</td>
+                <td valign='top'>{{ a }}</td>
+            </tr>
+            {% endfor %}
+        {% elif q.format == 'open' %}
+            {# No easier way to set vertical spacing with pisa. margin-top, height...nothing.  #}
+            <tr><td colspan="3"></td></tr> 
+            <tr><td colspan="3"></td></tr>
+            <tr><td colspan="3"></td></tr>
+            <tr><td colspan="3"></td></tr>
+            <tr><td colspan="3"></td></tr>
+            <tr><td colspan="3"></td></tr>
+        {% endif %}
+    </table>
+    </td></tr>
+</div>
+{% endfor %}
+</table>
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+# Test Builder
+
+Build multiple choice/short answer tests with Python.
+
+Uses Jinja2, Markdown, and xhtml2pdf to build PDFs.
+
+Read `test_builder.py` for details. Look at `examples` for example input and output.
+
+To install:
+
+    pip install -r requirements.txt
+    ... create YAML file (see examples) ...
+    python test_builder.py yourfile.yaml

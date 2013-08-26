@@ -1,0 +1,29 @@
+course: Intro to College
+term: Fall 2013
+instructor: Jon Smajda
+date: August 26, 2013
+shuffle-answers: true
+shuffle-questions: false
+
+---
+question: What color is the sky?
+answers:
+    - + Blue
+    - Green
+    - Red
+    - Yellow
+    - Purple
+
+---
+question: Which band is better?
+answers:
+    - + Beatles
+    - The Rolling Stones
+    - I don't know who either of these bands are
+notes: Kids these days.
+
+
+---
+question: Where do you see yourself in five years?
+notes: Be sure to share funny answers with colleagues.
+
